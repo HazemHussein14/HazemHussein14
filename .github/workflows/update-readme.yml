@@ -27,8 +27,15 @@ jobs:
           echo "Updating README"
           STATS_URL="https://github-readme-stats.vercel.app/api?username=hazemhussein14&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&token=${{ secrets.GH_TOKEN }}"
           echo "Generated STATS_URL: $STATS_URL"
-          # Use delimiter other than /
+          
+          # Print the original README content
+          echo "Original README content:"
+          cat README.md
+          
+          # Perform the replacement
           sed -i "s|STATS_URL_PLACEHOLDER|$STATS_URL|g" README.md
+          
+          # Print the updated README content
           echo "Updated README content:"
           cat README.md
         env:
