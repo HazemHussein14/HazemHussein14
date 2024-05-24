@@ -1,0 +1,26 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Generate GitHub Stats
+        run: |
+          echo "Updating README"
+          STATS_URL="https://github-readme-stats.vercel.app/api?username=hazemhussein14&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&token=${GH_TOKEN}"
+          sed -i "s|STATS_URL_PLACEHOLDER|$STATS_URL|" README.md
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
