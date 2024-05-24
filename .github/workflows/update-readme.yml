@@ -10,18 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: '20'
+
+      - name: Print Environment Variables
+        run: |
+          echo "GH_TOKEN: ${{ secrets.GH_TOKEN }}"
+          echo "Username: hazemhussein14"
 
       - name: Generate GitHub Stats
         run: |
           echo "Updating README"
           STATS_URL="https://github-readme-stats.vercel.app/api?username=hazemhussein14&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&token=${{ secrets.GH_TOKEN }}"
+          echo "Generated STATS_URL: $STATS_URL"
           sed -i "s|STATS_URL_PLACEHOLDER|$STATS_URL|" README.md
-          cat README.md # Debug step to print the updated README content
+          echo "Updated README content:"
+          cat README.md
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
