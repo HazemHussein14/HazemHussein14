@@ -23,6 +23,6 @@
 
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=hazemhussein14&show_icons=true&locale=en&layout=compact" alt="hazemhussein14" /></p>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=hazemhussein14&show_icons=true&locale=en" alt="hazemhussein14" /></p>
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=hazemhussein14&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&token=${{secrets.GH_TOKEN}}" alt="hazemhussein14" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=hazemhussein14&" alt="hazemhussein14" /></p>
